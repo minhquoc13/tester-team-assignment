@@ -5,6 +5,7 @@ import model.User;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,8 +28,9 @@ public class LoginTest {
     }
 
     public void readTestCase() throws IOException {
-
-        FileInputStream fileInputStream = new FileInputStream("/Users/chicken/source/assignment/ki2nam3/tester/selenium/demo/src/main/resources/login-testcase.xlsx");
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("login-testcase.xlsx").getFile());
+        FileInputStream fileInputStream = new FileInputStream(file);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
         XSSFSheet sheet = workbook.getSheetAt(0);
 
