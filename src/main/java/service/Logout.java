@@ -1,9 +1,13 @@
+package service;
+
+import model.User;
 import org.openqa.selenium.By;
 
-public class Logout extends Login{
-    public Logout(){
+public class Logout extends Login {
+    public Logout(User user){
         super();
-        login("mngr399630", "apavEba");
+        setUser(user);
+        login();
     }
 
     public void logout(){
@@ -11,6 +15,6 @@ public class Logout extends Login{
     }
 
     public static void main(String[] args) {
-        new Logout().logout();
+        new Logout(new User("mngr399630", "apavEba")).logout();
     }
 }
