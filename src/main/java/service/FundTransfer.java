@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import java.util.Scanner;
 
 public class FundTransfer extends Login {
-	public FundTransfer(User user) {
+	private FundTransfer(User user) {
 		super();
 		setUser(user);
 		login();

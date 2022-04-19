@@ -18,8 +18,9 @@ public class LoginTest {
         readTestCase();
         users.forEach(user -> {
             Login login = new Login(user);
+            login.login();
             try {
-                Thread.sleep(15000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

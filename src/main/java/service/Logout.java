@@ -4,7 +4,7 @@ import model.User;
 import org.openqa.selenium.By;
 
 public class Logout extends Login {
-    public Logout(User user){
+    private Logout(User user){
         super();
         setUser(user);
         login();
