@@ -1,5 +1,6 @@
 package service;
 
+import model.Fund;
 import model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,23 +8,26 @@ import org.openqa.selenium.WebElement;
 import java.util.Scanner;
 
 public class FundTransfer extends Login {
-	private FundTransfer(User user) {
-		super();
+	public FundTransfer(User user) {
 		setUser(user);
-		login();
 	}
 
 
-	public void fundTransfer(String row1, String row2, String row3, String row4) {
-		getDriver().findElement(By.xpath("/html/body/div[3]/div/ul/li[10]")).click();
-		WebElement Row1 = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input"));
-		Row1.sendKeys(row1);
-		WebElement Row2 = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input"));
-		Row2.sendKeys(row2);
-		WebElement Row3 = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
-		Row3.sendKeys(row3);
-		WebElement Row4 = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[7]/td[2]/input"));
-		Row4.sendKeys(row4);
+	public void testFund(Fund fund) {
+		getDriver().findElement(By.xpath("/html/body/div[3]/div/ul/li[10]/a")).click();
+
+		WebElement PayersAccountNo = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input"));
+		PayersAccountNo.sendKeys(fund.getPayersAccountNo());
+
+		WebElement PayeesAccountNo = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input"));
+		PayeesAccountNo.sendKeys(fund.getPayeesAccountNo());
+
+		WebElement getAmount = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[6]/td[2]/input"));
+		getAmount.sendKeys(fund.getAmount());
+
+		WebElement getDescription = getDriver().findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[7]/td[2]/input"));
+		getDescription.sendKeys(fund.getDescription());
+
 		Option();
 	}
 	public void Option() {
@@ -45,16 +49,6 @@ public class FundTransfer extends Login {
 			System.out.println("Số nhập vào phải nằm trong khoảng từ 1 đến 2.");
 		}
 		
-	}
-	public void Input() {
-		fundTransfer("123","456","12.000","Beautiful");
-	}
-	public static void main(String[] args) {
-		
-		// TODO Auto-generated method stub
-		FundTransfer run = new FundTransfer(new User());
-		run.Input();
-
 	}
 
 }

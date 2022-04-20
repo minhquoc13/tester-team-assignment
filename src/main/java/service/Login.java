@@ -21,6 +21,7 @@ public class Login {
     }
 
     void setUp(){
+        System.setProperty("webdriver.chrome.driver","D:\\Drivers\\chromedriver.exe");
         driver = DriverConfiguration.getWebDriver("https://www.demo.guru99.com/V4/");
         driver.manage().window().maximize();
     }
